@@ -13,7 +13,7 @@ ZSH_THEME="chrisrohrer"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias st="open -a sourcetree"
-alias code="open -a \"visual studio code\""
+alias code="open -a visual\ studio\ code"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

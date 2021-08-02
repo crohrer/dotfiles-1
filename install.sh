@@ -73,13 +73,6 @@ initialize() {
     git clone --recursive https://github.com/crohrer/dotfiles-1 .
   fi
 
-  brew tap homebrew/bundle
-  brew install zsh
-  sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
-  sudo chsh -s /usr/local/bin/zsh
-  chmod 755 /usr/local/share/zsh
-  chmod 755 /usr/local/share/zsh/site-functions
-
   mkdir -p "${HOME}"/Screenshots
 }
 
