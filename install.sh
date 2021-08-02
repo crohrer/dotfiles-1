@@ -32,12 +32,7 @@ symlink_dotfiles() {
   export -f handle_symlink_from_path
 
   bulk_symlink_target=(
-    "./dotfiles/Library/Application Support/Alfred/Alfred.alfredpreferences"
-    "./dotfiles/Library/Application Support/Uebersicht/widgets"
-    "./dotfiles/.aliases"
-    "./dotfiles/.git_template"
-    "./dotfiles/.snippets"
-    "./dotfiles/.trashrc"
+    # "./dotfiles/Library/Application Support/Alfred/Alfred.alfredpreferences"
   )
 
   find_exclude=""
@@ -66,7 +61,7 @@ initialize() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     mkdir -p "${HOME}"/.ssh
-    ssh-keygen -t rsa -b 4096 -C "ooulwluoo@gmail.com"
+    ssh-keygen -t rsa -b 4096 -C "c@chrisrohrer.de"
     ssh-keyscan -t rsa github.com >> "${HOME}"/.ssh/known_hosts
     # Password auth is deprecated at 2020/11/13. This can't be automated now.
     # curl -u "ulwlu" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
@@ -74,8 +69,8 @@ initialize() {
 
     brew install gh
     gh auth login
-    mkdir -p "${HOME}"/.ghq/github.com/ulwlu/dotfiles && cd "$_" || exit 1
-    git clone --recursive https://github.com/ulwlu/dotfiles .
+    mkdir -p "${HOME}"/projects/dotfiles && cd "$_" || exit 1
+    git clone --recursive https://github.com/crohrer/dotfiles-1 .
   fi
 
   brew tap homebrew/bundle
@@ -85,7 +80,7 @@ initialize() {
   chmod 755 /usr/local/share/zsh
   chmod 755 /usr/local/share/zsh/site-functions
 
-  mkdir -p "${HOME}"/work
+  mkdir -p "${HOME}"/Screenshots
 }
 
 usage() {

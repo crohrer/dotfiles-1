@@ -1,3 +1,0 @@
-\set PROMPT1 '%n@%/%R %x %#'
-\set PROMPT2 '%n@%/%R %x %#'
-\set AUTOCOMMIT off

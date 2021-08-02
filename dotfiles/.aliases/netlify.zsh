@@ -1,1 +1,0 @@
-alias gdev='gatsby develop'

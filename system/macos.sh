@@ -155,7 +155,7 @@ General() {
   # defaults -currentHost write .GlobalPreferences AppleFontSmoothing -bool false
 }
 
-DesktopScreenSaver() {
+# DesktopScreenSaver() {
   # ========== Desktop Picture ==========
   # osascript -e "
   #   tell application \"Finder\"
@@ -173,29 +173,29 @@ DesktopScreenSaver() {
   # - Center
   # - Tile
   # @string: choose preferred item.
-  osascript -e "
-    tell application \"System Preferences\"
-      activate
-      reveal pane id \"com.apple.preference.desktopscreeneffect\"
-    end tell
-    tell application \"System Events\"
-      tell application process \"System Preferences\"
-        repeat while not (window 1 exists)
-        end repeat
-        tell window 1
-          tell tab group 1
-            tell pop up button 2
-              click
-              delay 1
-              tell menu 1
-                click menu item \"Fill Screen\"
-              end tell
-            end tell
-          end tell
-        end tell
-      end tell
-    end tell
-  "
+  # osascript -e "
+  #   tell application \"System Preferences\"
+  #     activate
+  #     reveal pane id \"com.apple.preference.desktopscreeneffect\"
+  #   end tell
+  #   tell application \"System Events\"
+  #     tell application process \"System Preferences\"
+  #       repeat while not (window 1 exists)
+  #       end repeat
+  #       tell window 1
+  #         tell tab group 1
+  #           tell pop up button 2
+  #             click
+  #             delay 1
+  #             tell menu 1
+  #               click menu item \"Fill Screen\"
+  #             end tell
+  #           end tell
+  #         end tell
+  #       end tell
+  #     end tell
+  #   end tell
+  # "
 
   # ========== ScreenSaver Picture ==========
   # osascript -e "
@@ -242,7 +242,7 @@ DesktopScreenSaver() {
   #   ${SPLIST}
   # - Unchecked
   # defaults -currentHost delete com.apple.screensaver moduleDict
-}
+# }
 
 Dock() {
   # ========== Size ==========
@@ -547,8 +547,8 @@ Notifications() {
 
 UsersGroups() {
   # ========== Profile Picture ==========
-  # UNM=$(whoami)
-  # sudo dscl . create /Users/"${UNM}" Picture "${EXEPATH}/icon.jpg"
+  UNM=$(whoami)
+  sudo dscl . create /Users/"${UNM}" Picture "${EXEPATH}/icon.jpg"
 }
 
 SecurityPrivacy() {
@@ -1309,13 +1309,13 @@ Finder() {
 ## ----------------------------------------
 ##  Desktop
 ## ----------------------------------------
-Desktop() {
+# Desktop() {
   # ========== Icon Size ==========
   # /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 36" "${HOME}"/Library/Preferences/com.apple.finder.plist
 
   # ========== Text Size ==========
   # /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 12" "${HOME}"/Library/Preferences/com.apple.finder.plist
-}
+# }
 
 ## ----------------------------------------
 ##  AppStore
@@ -1415,42 +1415,16 @@ ExtraSettings() {
     "Google Chrome"       "com.google.Chrome"                         "file:///Applications/Google%20Chrome.app/"
     "Visual Studio Code"  "com.microsoft.VSCode"                      "file:///Applications/Visual%20Studio%20Code.app/"
     "iTerm"               "com.googlecode.iterm2"                     "file:///Applications/iTerm.app/"
+    "1Password 7"         "com.agilebits.onepassword7"                "file:///Applications/1Password%207.app/"
     "Spotify"             "com.spotify.client"                        "file:///Applications/Spotify.app/"
     "System Preferences"  "com.apple.systempreferences"               "file:///Applications/System%20Preferences.app/"
     "App Store"           "com.apple.AppStore"                        "file:///Applications/App%20Store.app/"
+    "Discord"             "com.hnc.Discord"                            "file:///Applications/Discord.app/"
   #   "Mail"                "com.apple.mail"                            "file:///Applications/Mail.app/"
   #   "Docker"              "com.docker.docker"                         "file:///Applications/Docker.app/"
-  #   "Xcode"               "com.apple.dt.Xcode"                        "file:///Applications/Xcode.app/"
-  #   "Kindle"              "com.amazon.Kindle"                         "file:///Applications/Kindle.app/"
-  #   "Rectangle"           "com.knollsoft.Rectangle"                   "file:///Applications/Rectangle.app/"
-  #   "zoom.us"             "us.zoom.xos"                               "file:///Applications/zoom.us.app/"
-  #   "Wireshark"           "org.wireshark.Wireshark"                   "file:///Applications/Wireshark.app/"
-  #   "Discord"             "com.hnc.Discord"                            "file:///Applications/Discord.app/"
-  #   "Transmit"            "com.panic.Transmit"                        "file:///Applications/Transmit.app/"
   #   "VirtualBox"          "org.virtualbox.app.VirtualBox"             "file:///Applications/VirtualBox.app/"
   #   "QuickTime Player"    "com.apple.QuickTimePlayerX"                "file:///Applications/QuickTime%20Player.app/"
-  #   "MongoDB Compass"     "com.mongodb.compass"                       "file:///Applications/MongoDB%20Compass.app/"
-  #   "LimeChat"            "net.limechat.LimeChat-AppStore"            "file:///Applications/LimeChat.app/"
-  #   "Android Studio"      "com.google.android.studio"                 "file:///Applications/Android%20Studio.app/"
-  #   "LINE"                "jp.naver.line.mac"                         "file:///Applications/LINE.app/"
-  #   "Local"               "com.getflywheel.lightning.local"           "file:///Applications/Local.app/"
-  #   "Sequel Pro"          "com.sequelpro.SequelPro"                   "file:///Applications/Sequel%20Pro.app/"
-  #   "Slack"               "com.tinyspeck.slackmacgap"                 "file:///Applications/Slack.app/"
   #   "Calendar"            "com.apple.iCal"                            "file:///Applications/Calendar.app/"
-  #   "Burp Suite"          "com.install4j.9806-1938-4586-6531.70"      "file:///Applications/Burp%20Suite%20Community%20Edition.app/"
-  #   "Postman"             "com.postmanlabs.mac"                       "file:///Applications/Postman.app/"
-  #   "Adobe XD"            "com.adobe.xd"                              "file:///Applications/Adobe%20XD/Adobe%20XD.app/"
-  #   "Skitch"              "com.skitch.skitch"                         "file:///Applications/Skitch.app/"
-  #   "Voice Memos"         "com.apple.VoiceMemos"                      "file:///Applications/VoiceMemos.app/"
-  #   "Gifski"              "com.sindresorhus.Gifski"                   "file:///Applications/Gifski.app/"
-  #   "Alfred Preferences"  "com.runningwithcrayons.Alfred-Preferences" "file:///Applications/Alfred%204.app/Contents/Preferences/Alfred%20Preferences.app/"
-  #   "Tor Browser"         "org.torproject.torbrowser"                 "file:///Applications/Tor%20Browser.app/"
-  #   "Karabiner-Elements"  "org.pqrs.Karabiner-Elements.Preferences"   "file:///Applications/Karabiner-Elements.app/"
-  #   "Automator"           "com.apple.Automator"                       "file:///Applications/Automator.app/"
-  #   "Digital Color Meter" "com.apple.DigitalColorMeter"               "file:///Applications/Utilities/Digital%20Color%20Meter.app/"
-  #   "GPG Keychain"        "org.gpgtools.gpgkeychain"                  "file:///Applications/GPG%20Keychain.app/"
-  #   "Script Editor"       "com.apple.ScriptEditor2"                   "file:///Applications/Utilities/Script%20Editor.app/"
-  #   "Notion"              "notion.id"                                 "file:///Applications/Notion.app/"
   )
   PLIST="${HOME}/Library/Preferences/com.apple.dock.plist"
   /usr/libexec/PlistBuddy -c "Add persistent-apps array" ${PLIST}
@@ -1607,8 +1581,8 @@ fi
 Appstore
 Bluetooth
 DateTime
-Desktop
-DesktopScreenSaver
+# Desktop
+# DesktopScreenSaver
 Displays
 Dock
 EnergySaver

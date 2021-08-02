@@ -1,7 +1,3 @@
-npm
-pnpm
-yarn
-degit
 prettier
 typescript
-@squoosh/cli
+serve

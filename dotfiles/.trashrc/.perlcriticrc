@@ -1,3 +1,0 @@
-severity = 5
-program-extensions = .pm .pl .t
-verbose = %f: [%p] %m at line %l, near '%r'. (Severity: %s)\n
